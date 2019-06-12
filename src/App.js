@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import * as $ from "jquery";
+// import * as $ from "jquery";
 import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import hash from "./hash";
 import Player from "./Player";
 import logo from "./logo.svg";
 import "./App.css";
+import axios from "axios";
 
 class App extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class App extends Component {
         },
         name: "",
         artists: [{ name: "" }],
-        duration_ms:0,
+        duration_ms: 0
       },
       is_playing: "Paused",
       progress_ms: 0
@@ -39,25 +40,26 @@ class App extends Component {
 
   getCurrentlyPlaying(token) {
     // Make a call using the token
-    $.ajax({
-      url: "https://api.spotify.com/v1/me/player",
-      type: "GET",
-      beforeSend: (xhr) => {
-        xhr.setRequestHeader("Authorization", "Bearer " + token);
-      },
-      success: (data) => {
-        console.log("data", data);
+    const AuthStr = "Bearer " + token;
+    axios
+      .get("https://api.spotify.com/v1/me/player", {
+        headers: { Authorization: AuthStr }
+      })
+      .then(response => {
+        // If request is good...
+        console.log(response.data);
         this.setState({
-          item: data.item,
-          is_playing: data.is_playing,
-          progress_ms: data.progress_ms,
+          item: response.data.item,
+          is_playing: response.data.is_playing,
+          progress_ms: response.data.progress_ms,
         });
-      }
-    });
+      })
+      .catch(error => {
+        console.log("error " + error);
+      });
   }
 
   render() {
-
     return (
       <div className="App">
         <header className="App-header">
