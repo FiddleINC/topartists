@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import hash from "./hash";
-import Player from "./Player";
+// import Player from "./Player";
+import Artists from "./components/artists/artists";
 import "./App.css";
 import axios from "axios";
 
@@ -19,9 +20,11 @@ class App extends Component {
         duration_ms: 0
       },
       is_playing: "Paused",
-      progress_ms: 0
+      progress_ms: 0,
+      artists: []
     };
     this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
+    this.getTopArtists = this.getTopArtists.bind(this);
   }
   componentDidMount() {
     // Set token
@@ -33,7 +36,36 @@ class App extends Component {
         token: _token
       });
       this.getCurrentlyPlaying(_token);
+      this.getTopArtists(_token);
     }
+  }
+
+  getTopArtists(token) {
+    //Making a call
+    const AuthStr = "Bearer " + token;
+    axios
+      .get(
+        "https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=50",
+        {
+          headers: { Authorization: AuthStr }
+        }
+      )
+      .then(response => {
+        // If request is good...
+        console.log(response.data);
+        const arrayList = [];
+        response.data.items.forEach(item => {
+          arrayList.push(item);
+        });
+        console.log(arrayList);
+        this.setState({
+          artists: arrayList
+        });
+        console.log(this.state.artists);
+      })
+      .catch(error => {
+        console.log("error " + error);
+      });
   }
 
   getCurrentlyPlaying(token) {
@@ -49,7 +81,7 @@ class App extends Component {
         this.setState({
           item: response.data.item,
           is_playing: response.data.is_playing,
-          progress_ms: response.data.progress_ms,
+          progress_ms: response.data.progress_ms
         });
       })
       .catch(error => {
@@ -61,23 +93,20 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {!this.state.token && (
-            <a
-              className="btn btn--loginApp-link"
-              href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-                "%20"
-              )}&response_type=token&show_dialog=true`}
-            >
-              Login to Spotify
-            </a>
-          )}
-          {this.state.token && (
-            <Player
-              item={this.state.item}
-              is_playing={this.state.is_playing}
-              progress_ms={this.progress_ms}
-            />
-          )}
+          <h1>Welcome to your Top Artists</h1>
+          <div className="container">
+            {!this.state.token && (
+              <a
+                className="btn btn--loginApp-link"
+                href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+                  "%20"
+                )}&response_type=token&show_dialog=true`}
+              >
+                Login to Spotify
+              </a>
+            )}
+          </div>
+          {this.state.token && <Artists artists={this.state.artists} />}
         </header>
       </div>
     );
