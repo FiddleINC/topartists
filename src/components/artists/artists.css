@@ -1,7 +1,7 @@
-h1 {
+.card-title {
   text-align: center;
   padding: 1.5rem 2.5rem;
-  background-image: linear-gradient(120deg, #7a83b8 0%, #a6c1ee 100%);
+  background-image: linear-gradient(120deg, #282f57 0%, #a6c1ee 100%);
   margin: 0 0 0.1rem 0;
   font-size: 1.5rem;
   color: white;

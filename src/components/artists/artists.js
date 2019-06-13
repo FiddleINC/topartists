@@ -41,7 +41,7 @@ class Artists extends Component {
   };
   render() {
     return (
-      <div className="App">
+      <div className="Artist">
         <div className="container">{this.createList()}</div>
         <br />
       </div>
