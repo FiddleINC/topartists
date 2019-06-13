@@ -1,7 +1,5 @@
 # React Spotify Player Demo
 
-![How to Build A Spotify Player with React in 15 Minutes](https://user-images.githubusercontent.com/4650739/54856371-36ea3680-4cc8-11e9-9aeb-1be2a4d95f39.png)
-
 Have you ever wanted to add Spotify integration into your app or website? Adding personalized music to any application is super easy with the Spotify Developer API.
 
 The Spotify API is easy to use and can be added to any application. 
