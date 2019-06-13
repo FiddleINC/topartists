@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import hash from "./hash";
 // import Player from "./Player";
 import Artists from "./components/artists/artists";
-import "./App.css";
+import "./styles/style.css";
 import axios from "axios";
 import Welcome from "./components/welcome/welcome";
 

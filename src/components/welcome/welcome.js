@@ -4,9 +4,9 @@ import "./welcome.css";
 
 const Welcome = () => {
   return (
-    <div className="Welcome">
+    <div className="Welcome w3-content w3-animate-opacity">
       <div className="middle ">
-        <h1>Find your Top Artists</h1>
+        <h1 className="w3-xxxlarge">Find your Top Artists</h1>
         <hr />
         <br />
         <a
