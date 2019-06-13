@@ -1,20 +1,4 @@
-# React Spotify Player Demo
-
-![How to Build A Spotify Player with React in 15 Minutes](https://user-images.githubusercontent.com/4650739/54856371-36ea3680-4cc8-11e9-9aeb-1be2a4d95f39.png)
-
-Have you ever wanted to add Spotify integration into your app or website? Adding personalized music to any application is super easy with the Spotify Developer API.
-
-The Spotify API is easy to use and can be added to any application. 
-In this post, I am going to walk through how to access the Spotify Developer API in the browser using React. The goal is to be a starting point for frontend devs who want to get set up with Spotify API as quickly as possible. Together, we will be creating a Spotify Web player that displays information about your currently played music from Spotify. We will also demonstrate how to:
-
-* Register an application with Spotify
-* Authenticate a user and get authorization to access user data
-* Retrieve the data from a Web API endpoint
-
-You can read the blog post that accompanies this code, here: [https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6](https://medium.com/@joekarlsson/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6)
-
-![Spotify player](https://user-images.githubusercontent.com/4650739/54856251-8aa85000-4cc7-11e9-9bb1-e27812ac2e00.gif)
-
+# Top Artists
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -57,7 +41,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Contributing
 
-Don't hesitate to create a pull request. Every contribution is appreciated. In development you can start the tests by calling `npm test`. Checkout our [contribution README](https://github.com/JoeKarlsson/movie-script-scraper/blob/master/CONTRIBUTING.md) for more info.
+Don't hesitate to create a pull request. Every contribution is appreciated. In development you can start the tests by calling `npm test`.
 
 TLDR;
 
@@ -74,9 +58,9 @@ TLDR;
     <tr>
       <td align="center">
         <img width="150 height="150"
-        src="https://avatars.githubusercontent.com/JoeKarlsson?v=3">
+        src="https://avatars1.githubusercontent.com/u/23612920?s=400&u=e3820fc559481548f94db1bee4a8cf377108f008&v=4">
         <br />
-        <a href="https://github.com/JoeKarlsson">Joe Karlsson</a>
+        <a href="https://github.com/FiddleINC">Fiddleinc</a>
       </td>
     <tr>
   <tbody>
@@ -85,4 +69,3 @@ TLDR;
 ### License
 
 #### [MIT](./LICENSE)
-# topartists
