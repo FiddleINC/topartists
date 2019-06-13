@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import hash from "./hash";
 // import Player from "./Player";
 import Artists from "./components/artists/artists";
 import "./App.css";
 import axios from "axios";
+import Welcome from "./components/welcome/welcome";
 
 class App extends Component {
   constructor() {
@@ -92,22 +92,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Welcome to your Top Artists</h1>
-          <div className="container">
-            {!this.state.token && (
-              <a
-                className="btn btn--loginApp-link"
-                href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-                  "%20"
-                )}&response_type=token&show_dialog=true`}
-              >
-                Login to Spotify
-              </a>
-            )}
-          </div>
-          {this.state.token && <Artists artists={this.state.artists} />}
-        </header>
+        {!this.state.token && <Welcome />}
+        {this.state.token && <Artists artists={this.state.artists} />}
       </div>
     );
   }

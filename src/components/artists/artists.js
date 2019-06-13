@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./artists.css";
 
 class Artists extends Component {
   // constructor(props) {
@@ -8,6 +9,10 @@ class Artists extends Component {
   //     artists: this.props.artists
   //   };
   // }
+
+  componentDidMount() {
+    alert("Click on the Image to open Spotify Profile");
+  }
 
   createList = props => {
     console.log(this.props);
@@ -37,24 +42,9 @@ class Artists extends Component {
   render() {
     return (
       <div className="App">
-          {/* <div className="now-playing__img">
-      <img src={props.item.album.images[0].url} alt="thumb" />
-    </div> */}
-          <div className="container">
-            {this.createList()}
-          </div>
-          <br />
-          {/* <div className="now-playing__artist">
-        {props.item.artists[0].name}
+        <div className="container">{this.createList()}</div>
+        <br />
       </div>
-      <div className="now-playing__status">
-        {props.is_playing ? "Playing" : "Paused"}
-      </div>
-      <div className="progress">
-        <div className="progress__bar" style={progressBarStyles} />
-      </div> */}
-          {/* <div className="background" style={backgroundStyles} />{" "} */}
-        </div>
     );
   }
 }
