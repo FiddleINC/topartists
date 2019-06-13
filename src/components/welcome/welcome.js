@@ -6,7 +6,7 @@ const Welcome = () => {
   return (
     <div className="Welcome">
       <div className="middle ">
-        <h1>Welcome to your Top Artists</h1>
+        <h1>Find your Top Artists</h1>
         <hr />
         <br />
         <a

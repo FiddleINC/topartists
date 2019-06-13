@@ -2,7 +2,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Josefin Sans', sans-serif !important;
-  background-image: linear-gradient(120deg, #cad0ee 0%, #a6c1ee 100%);
 }
 
 #root {
